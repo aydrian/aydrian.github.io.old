@@ -1,0 +1,12 @@
+# Site settings
+title: aydrian.me
+email:
+description: > # this means to ignore newlines until "baseurl:"
+
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://aydrian.me" # the base hostname & protocol for your site
+twitter_username: aydrianh
+github_username:  aydrian
+
+# Build settings
+markdown: kramdown
