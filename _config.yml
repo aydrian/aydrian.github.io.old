@@ -1,3 +1,21 @@
+safe: false
+lsi: false
+pygments: true
+
+relative_source: ./
+destination: ./
+
+# Settings for deploy rake task
+# Username and repo of Github repo, e.g.
+# https://github.com/USERNAME/REPO.git
+# username defaults to ENV['GIT_NAME'] used by Travis
+# repo defaults to USERNAME.github.io
+# Branch defaults to "source" for USERNAME.github.io
+# or "master" otherwise
+username: aydrian
+repo: aydrian.github.io
+branch: source
+
 # Site settings
 title: aydrian.me
 email:
@@ -10,3 +28,13 @@ github_username:  aydrian
 
 # Build settings
 markdown: kramdown
+
+exclude:
+  - README.md
+  - Rakefile
+  - Gemfile
+  - Gemfile.lock
+  - changelog.md
+  - "*.Rmd"
+  - vendor
+  - .travis.yml
