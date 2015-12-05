@@ -2,8 +2,8 @@ safe: false
 lsi: false
 pygments: true
 
-relative_source: _site
-destination: _site
+relative_source: ../aydrian.github.io/
+destination: ../aydrian.github.io/_site
 
 # Settings for deploy rake task
 # Username and repo of Github repo, e.g.
