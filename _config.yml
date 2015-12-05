@@ -14,7 +14,7 @@ destination: _site
 # or "master" otherwise
 username: aydrian
 repo: aydrian.github.io
-branch: source
+branch: master
 
 # Site settings
 title: aydrian.me
