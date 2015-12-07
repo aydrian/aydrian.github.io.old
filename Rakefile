@@ -8,10 +8,19 @@
 require 'rake'
 require 'date'
 require 'yaml'
+require 'html/proofer'
 
 CONFIG = YAML.load(File.read('_config.yml'))
 USERNAME = CONFIG["username"] || ENV['GIT_NAME']
 REPO = CONFIG["repo"] || "#{USERNAME}.github.io"
+
+
+# Available Options https://github.com/gjtorikian/html-proofer#configuration
+htmlproofer_opts = {
+  :disable_external => true,
+  :allow_hash_href => true,
+  :verbosity => :debug
+}
 
 # Determine source and destination branch
 # User or organization: source -> master
@@ -189,8 +198,18 @@ namespace :site do
     sh "bundle exec jekyll serve --watch"
   end
 
+  desc "Generate the site and test"
+  task :test do
+    sh "bundle exec jekyll build"
+    HTML::Proofer.new(CONFIG["destination"], htmlproofer_opts).run
+  end
+
   desc "Generate the site and push changes to remote origin"
   task :deploy do
+    # Test the Generated site
+    sh "bundle exec jekyll build"
+    HTML::Proofer.new(CONFIG["destination"], htmlproofer_opts).run
+
     # Detect pull request
     if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
       puts 'Pull request detected. Not proceeding with deploy.'
@@ -216,9 +235,9 @@ namespace :site do
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
     Dir.chdir(CONFIG["destination"]) do
-      sh "git add --all ."
-      sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
-      sh "git push --quiet origin #{DESTINATION_BRANCH}"
+      #sh "git add --all ."
+      #sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
+      #sh "git push --quiet origin #{DESTINATION_BRANCH}"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
   end

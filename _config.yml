@@ -2,7 +2,7 @@ safe: false
 highlighter: true
 
 relative_source: ../aydrian.github.io/
-destination: ../aydrian.github.io-pages/
+destination: ./_site
 
 # Settings for deploy rake task
 # Username and repo of Github repo, e.g.
@@ -17,7 +17,7 @@ branch: develop
 
 # Site settings
 title: aydrian.me
-email:
+email: hello@aydrian.me
 description: > # this means to ignore newlines until "baseurl:"
 
 baseurl: "" # the subpath of your site, e.g. /blog/
