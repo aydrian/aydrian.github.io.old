@@ -1,6 +1,5 @@
 safe: false
-lsi: false
-pygments: true
+highlighter: true
 
 relative_source: ../aydrian.github.io/
 destination: ../aydrian.github.io-pages/
