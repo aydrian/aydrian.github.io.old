@@ -206,15 +206,6 @@ namespace :site do
 
   desc "Generate the site and push changes to remote origin"
   task :deploy do
-    # Test the Generated site
-    sh "bundle exec jekyll build"
-    HTML::Proofer.new(CONFIG["destination"], htmlproofer_opts).run
-
-    # Detect pull request
-    if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
-      puts 'Pull request detected. Not proceeding with deploy.'
-      exit
-    end
 
     # Configure git if this is run in Travis CI
     if ENV["TRAVIS"]
@@ -231,6 +222,15 @@ namespace :site do
 
     # Generate the site
     sh "bundle exec jekyll build"
+
+    # Test the Generated site
+    HTML::Proofer.new(CONFIG["destination"], htmlproofer_opts).run
+
+    # Detect pull request
+    if ENV['TRAVIS_PULL_REQUEST'].to_s.to_i > 0
+      puts 'Pull request detected. Not proceeding with deploy.'
+      exit
+    end
 
     # Commit and push to github
     sha = `git log`.match(/[a-z0-9]{40}/)[0]
