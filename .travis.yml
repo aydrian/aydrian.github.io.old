@@ -9,8 +9,8 @@ install:
 script: bundle exec rake site:deploy --quiet
 
 branches:
-  except:
-    - master
+  only:
+    - develop
 
 env:
   global:
