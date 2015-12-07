@@ -2,7 +2,7 @@ safe: false
 highlighter: true
 
 relative_source: ../aydrian.github.io/
-destination: ../aydrian.github.io/_site/
+# destination: ../aydrian.github.io/_site/
 
 # Settings for deploy rake task
 # Username and repo of Github repo, e.g.
