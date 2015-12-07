@@ -3,7 +3,7 @@ lsi: false
 pygments: true
 
 relative_source: ../aydrian.github.io/
-destination: ../aydrian.github.io/_site
+destination: ../aydrian.github.io-pages/
 
 # Settings for deploy rake task
 # Username and repo of Github repo, e.g.
@@ -14,7 +14,7 @@ destination: ../aydrian.github.io/_site
 # or "master" otherwise
 username: aydrian
 repo: aydrian.github.io
-branch: master
+branch: develop
 
 # Site settings
 title: aydrian.me
