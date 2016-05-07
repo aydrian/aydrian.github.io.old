@@ -41,7 +41,7 @@ tagline:
 {% endfor %}
 <hr/>
 
-<ul class="pager"> 
+<ul class="pager">
 
   {% if paginator.previous_page %}
   <li class="previous">
@@ -53,10 +53,10 @@ tagline:
   </li>
   {% else %}
   <li class="previous disabled">
-    <a>&larr; Newer</a>
+    <span>&larr; Newer</span>
   </li>
   {% endif %}
-  
+
   <li>
     <span class="page_number">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
   </li>
@@ -67,7 +67,7 @@ tagline:
   </li>
   {% else %}
   <li class="next disabled">
-    <a>Older &rarr;</a>        
+    <span>Older &rarr;</span>
   </li>
   {% endif %}
 
