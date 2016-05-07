@@ -1,5 +1,4 @@
 safe: false
-highlighter: true
 
 relative_source: ../aydrian.github.io/
 destination: ./_site/
@@ -15,19 +14,8 @@ username: aydrian
 repo: aydrian.github.io
 branch: develop
 
-# Site settings
-title: aydrian.me
-email: hello@aydrian.me
-description: > # this means to ignore newlines until "baseurl:"
-
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://aydrian.me" # the base hostname & protocol for your site
-twitter_username: aydrianh
-github_username:  aydrian
-
-# Build settings
-markdown: kramdown
-
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
 exclude:
   - README.md
   - Rakefile
@@ -37,3 +25,38 @@ exclude:
   - "*.Rmd"
   - vendor
   - .travis.yml
+highlighter: pygments
+markdown: kramdown
+# disqus: dbyll
+# google_analytics: dbyll
+title: aydrian.me
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      title: aydrian.me
+
+description: Stylish Jekyll Theme
+author:
+  name: Aydrian J Howard
+  email: hello@aydrian.me
+  github: aydrian
+  twitter: haybien
+  # pinterest: asd123
+  # linkedin: asd123
+  bio: Your stylish, minimalist theme!
+  email_md5: 726351295ec82e145928582f595aa3aa
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+
+# set it as url of an image
+# sidebar_background_image: https://www.dropbox.com/s/g9h23zrycedxtk5/sky.png?raw=1
+
+BASE_PATH:
+
+gems:
+  - jekyll-paginate
